@@ -9,10 +9,10 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "`user`")
 public class User implements Serializable {
     @Id
-    private int id;
+    private Integer id;
     private String fullName;
     private String phone;
 }
