@@ -40,9 +40,9 @@ public class UserController {
                     return userDao.save(userForm);
                 });
     }
-    
+
     @DeleteMapping("/delete/{id}")
-    public void update(@PathVariable Integer id){
+    public void delete(@PathVariable Integer id){
         userDao.deleteById(id);
     }
 }
