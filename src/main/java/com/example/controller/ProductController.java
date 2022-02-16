@@ -15,11 +15,12 @@ public class ProductController {
     ProductDao productDao;
 
     @GetMapping("/product")
-    public List<Product> getProduct(){
+    public List<Product> getProduct() {
         return productDao.findAll();
     }
 
     @DeleteMapping("/deletepro/{id}")
-    public void update(@PathVariable Integer id){productDao.deleteById(id);
+    public void updateProduct(@PathVariable Integer id) {
+        productDao.deleteById(id);
     }
 }

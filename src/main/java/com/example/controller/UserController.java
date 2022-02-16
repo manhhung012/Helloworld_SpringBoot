@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -14,14 +13,13 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
-    // localhost:8080/users
     @GetMapping("/users")
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return userDao.findAll();
     }
 
     @PostMapping("/createUser")
-    public void createUser(@RequestBody User user){
+    public void createUser(@RequestBody User user) {
         userDao.save(user);
     }
 
@@ -41,17 +39,17 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Integer id){
+    public void delete(@PathVariable Integer id) {
         userDao.deleteById(id);
     }
 
     @GetMapping("/getuser/{phone}")
-    public List<User> getUserByPhone(@PathVariable String phone){
+    public List<User> getUserByPhone(@PathVariable String phone) {
         return userDao.findByPhone(phone);
     }
 
     @GetMapping("/getname/{fullName}")
-    public List<User> getUserByName(@PathVariable String fullName){
+    public List<User> getUserByName(@PathVariable String fullName) {
         return userDao.findName(fullName);
     }
 }
