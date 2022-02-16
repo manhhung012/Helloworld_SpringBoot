@@ -3,11 +3,10 @@ package com.example.controller;
 import com.example.dao.UserDao;
 import com.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -44,5 +43,15 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Integer id){
         userDao.deleteById(id);
+    }
+
+    @GetMapping("/getuser/{phone}")
+    public List<User> getUserByPhone(@PathVariable String phone){
+        return userDao.findByPhone(phone);
+    }
+
+    @GetMapping("/getname/{fullName}")
+    public List<User> getUserByName(@PathVariable String fullName){
+        return userDao.findName(fullName);
     }
 }
